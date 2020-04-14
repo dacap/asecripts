@@ -30,14 +30,14 @@ function showSpriteProperties(spr)
       local img = cels[i].image
       if img.colorMode == ColorMode.RGB then
 	for it in img:pixels() do
-	  if rgbaA(it) == 0 then
+	  if rgbaA(it()) == 0 then
 	    hasTransparent = true
 	    break
 	  end
 	end
       elseif spr.colorMode == ColorMode.INDEXED then
 	for it in img:pixels() do
-	  if it == spr.transparentColor then
+	  if it() == spr.transparentColor then
 	    hasTransparent = true
 	    break
 	  end
