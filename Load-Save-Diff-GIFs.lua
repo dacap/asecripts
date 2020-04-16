@@ -1,3 +1,4 @@
+local OUTPUT = "OUTPUT1"
 local DIR = os.getenv("GIFDIR")
 if not DIR then
   print("Define GIFDIR environment variable with the path where .gif files are")
@@ -78,7 +79,7 @@ function compareSprites(sprA, sprB)
     end
   end
   if saveDiff then
-    local outputFullFn = sprA.filename .. "-OUTPUT-DIFF.gif"
+    local outputFullFn = sprA.filename .. "-" .. OUTPUT .. "-DIFF.gif"
     print("  - Saving DIFFERENCES "..outputFullFn)
     sprB:saveAs(outputFullFn)
   end
@@ -94,7 +95,7 @@ function processDir(dir)
 	print("Loading "..fullFn)
 	local spr = Sprite{ fromFile=fullFn }
 	if spr then
-	  local outputFullFn = spr.filename .. "-OUTPUT.gif"
+	  local outputFullFn = spr.filename .. "-" .. OUTPUT .. ".gif"
 	  print("  - Saving "..outputFullFn)
 	  spr:saveCopyAs(outputFullFn)
 
